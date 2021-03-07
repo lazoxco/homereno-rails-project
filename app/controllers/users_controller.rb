@@ -15,6 +15,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    # create a helper method to redirect if not logged in
+    @user = User.find_by_id(params[:id])
+    redirect_to '/' if !@user
   end
 
   private
