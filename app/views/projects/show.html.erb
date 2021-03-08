@@ -3,4 +3,7 @@
 
 <p><%= @project.content %></p>
 
-<%= link_to "Edit Project", edit_project_path %>
+<p>
+  <%= link_to "Edit Project", edit_project_path, class: "btn btn-primary" %>
+  <%= link_to "Delete Project", project_path(@project), class: "btn btn-danger", method: :delete %>
+</p>
