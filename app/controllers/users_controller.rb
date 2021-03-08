@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    # create a helper method to redirect if not logged in
+    redirect_if_not_logged_in
     @user = User.find_by_id(params[:id])
     redirect_to '/' if !@user
   end

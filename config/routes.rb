@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
 
+  delete '/logout' => 'sessions#destroy'
+
   resources :comments
   resources :users do
     resources :projects, only: [:new, :create, :index]

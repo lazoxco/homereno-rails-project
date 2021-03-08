@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HomerenoRailsProject</title>
+    <title>HomeReno | Get Sh*t Done</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,6 +12,25 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">HomeReno</a>
+        </div>
+        
+        <ul class="nav navbar-nav navbar-right">
+          <% if logged_in? %>
+            <li><%= link_to "Logout", :logout, :class => 'navbar-link', method: :delete %></li>
+          <% else %>
+            <li> <%= link_to "Sign up", :signup, :class => 'navbar-link'  %></li>
+            <li> <%= link_to "Login", :login, :class => 'navbar-link'  %></li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
