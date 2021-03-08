@@ -35,12 +35,14 @@
     </nav>
 
     <div class="container">
-
-    <div>
-      <% if flash[:message] %>
-        <%= @errors %>
+      <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
       <% end %>
-    </div>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+
+      <%= @error %>
 
       <%= yield %>
     </div>

@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     if params[:project_id] && @project = Project.find_by_id(params[:project_id])
       @comment = @project.comments.build
     else
-      @errors = flash[:message] = "That project doesn't exist." if params[:project_id]
+      @error = "That project doesn't exist." if params[:project_id]
       @comment = Comment.new
     end
   end
@@ -22,13 +22,14 @@ class CommentsController < ApplicationController
     if params[:project_id] && @project = Project.find_by_id(params[:project_id])
       @comments = @project.comments
     else
-      @errors = flash[:message] = "That project doesn't exist." if params[:post_id]
+      @error = "That project doesn't exist." if params[:project_id]
       @comments = Comment.all
     end
   end
 
   def show
     @comment = Comment.find_by_id(params[:id])
+    redirect_to comments_path if !@comment
   end
 
   def edit
