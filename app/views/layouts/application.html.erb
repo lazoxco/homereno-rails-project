@@ -35,6 +35,13 @@
     </nav>
 
     <div class="container">
+
+    <div>
+      <% if flash[:message] %>
+        <%= @errors %>
+      <% end %>
+    </div>
+
       <%= yield %>
     </div>
   </body>

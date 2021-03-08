@@ -15,7 +15,12 @@ class ProjectsController < ApplicationController
   end
 
   def index
-    @projects = Project.all
+    if params[:user_id] && @user = User.find_by_id(params[:user_id])
+      @projects = @user.projects
+    else
+      @error = "That user doesn't exist" if params[:user_id]
+      @projects = Project.all
+    end
   end
 
   def show

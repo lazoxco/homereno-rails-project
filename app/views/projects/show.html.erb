@@ -12,5 +12,7 @@
 
 <h3>Comments</h3>
 <% @project.comments.each do |c| %>
-  <p>"<%= link_to c.content , post_comment_path(@post, c) %>" —<%= c.user.username %></p>
+  <p>"<%= link_to c.content , project_comment_path(@project, c) %>" —<%= c.user.username %></p>
 <% end %>
+
+<%= link_to "Add Comment", new_project_comment_path(@project), class: "btn btn-success" %>
