@@ -1,0 +1,6 @@
+<h1><%= @project.title %></h1>
+<p>by <%= @project.user.username %></p>
+
+<p><%= @project.content %></p>
+
+<%= link_to "Edit Project", edit_project_path %>
