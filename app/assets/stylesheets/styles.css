@@ -1,0 +1,16 @@
+body {
+  margin-bottom: 50px;
+}
+
+.row {
+  margin: 20px;
+}
+
+.jumbotron {
+  background-size: cover;
+}
+
+#error_explanation,
+.red-text {
+  color: red;
+}
