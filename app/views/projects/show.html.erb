@@ -3,7 +3,14 @@
 
 <p><%= @project.content %></p>
 
+<hr>
 <p>
   <%= link_to "Edit Project", edit_project_path, class: "btn btn-primary" %>
   <%= link_to "Delete Project", project_path(@project), class: "btn btn-danger", method: :delete %>
 </p>
+<hr>
+
+<h3>Comments</h3>
+<% @project.comments.each do |c| %>
+  <p>"<%= link_to c.content , post_comment_path(@post, c) %>" —<%= c.user.username %></p>
+<% end %>
