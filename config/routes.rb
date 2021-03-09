@@ -6,12 +6,13 @@ Rails.application.routes.draw do
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
-
   delete '/logout' => 'sessions#destroy'
+
+  get '/auth/google_oauth2/callback' => 'sessions#google'
 
   resources :comments
   resources :users do
-    resources :projects, only: [:new, :create, :index]
+    resources :projects
   end
   resources :projects do 
     resources :comments
